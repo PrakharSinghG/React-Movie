@@ -16,3 +16,11 @@ export const searchMovies = async (query) => {
   const data = await response.json();
   return data.results;
 };
+
+export const getMovieDetails = async (id) => {
+  const response = await fetch(
+    `${BASE_URL}/movie/${id}?api_key=${API_KEY}&append_to_response=credits,reviews`
+  );
+  const data = await response.json();
+  return data;
+};
